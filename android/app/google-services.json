@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "877257909911",
+    "project_id": "we-solve-it-out",
+    "storage_bucket": "we-solve-it-out.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877257909911:android:66dd4aa27c69767ec5abd2",
+        "android_client_info": {
+          "package_name": "com.example.cwt_ecommerce_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877257909911-8guiq533jqvaf2i67gg4cgqov97ju08s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA_RzzTdP6KJ5AVy73FGCqznpHe-H0C3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877257909911-8guiq533jqvaf2i67gg4cgqov97ju08s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "877257909911-p99ncpssfo6bv0gqtu4he2qbkfpb8f0d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cwtEcommerceApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877257909911:android:e3f481b87a65f81ec5abd2",
+        "android_client_info": {
+          "package_name": "com.wesolveitout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877257909911-48qursp6pegenjmiu8c3j6s3hdn1mavp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wesolveitout",
+            "certificate_hash": "2b2b277c3671236759598d7c41cb1c9331bda8d6"
+          }
+        },
+        {
+          "client_id": "877257909911-8guiq533jqvaf2i67gg4cgqov97ju08s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA_RzzTdP6KJ5AVy73FGCqznpHe-H0C3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877257909911-8guiq533jqvaf2i67gg4cgqov97ju08s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "877257909911-p99ncpssfo6bv0gqtu4he2qbkfpb8f0d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cwtEcommerceApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
