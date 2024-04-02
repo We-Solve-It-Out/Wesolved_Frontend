@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../features/shop/models/brand_model.dart';
-import '../../../features/shop/screens/brand/brand.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
@@ -26,7 +25,7 @@ class TBrandShowcase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(BrandScreen(brand: brand)),
+      onTap: () {},
       child: TRoundedContainer(
         margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
         showBorder: true,

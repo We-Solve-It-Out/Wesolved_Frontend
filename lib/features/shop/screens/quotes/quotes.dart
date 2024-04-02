@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wesolve/features/shop/controllers/categories_controller.dart';
+import 'package:wesolve/features/shop/screens/quote_detail/quote_detail.dart';
 import 'package:wesolve/home_menu.dart';
+import 'package:wesolve/utils/constants/image_strings.dart';
+import 'package:wesolve/utils/constants/text_strings.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/appbar/tabbar.dart';
-import '../../../../common/widgets/brands/brand_card.dart';
-import '../../../../common/widgets/layouts/grid_layout.dart';
-import '../../../../common/widgets/products/cart/cart_menu_icon.dart';
-import '../../../../common/widgets/shimmers/brands_shimmer.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
-import '../../controllers/brand_controller.dart';
-import '../brand/all_brands.dart';
-import '../brand/brand.dart';
 import '../home/widgets/header_search_container.dart';
-import 'widgets/category_tab.dart';
 
 class QuotesScreen extends StatelessWidget {
   const QuotesScreen({super.key});
@@ -25,7 +19,7 @@ class QuotesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final categories = CategoryController.instance.featuredCategories;
-    final brandController = Get.put(BrandController());
+    // final brandController = Get.put(BrandController());
     final dark = THelperFunctions.isDarkMode(context);
     return PopScope(
       canPop: false,
@@ -64,11 +58,11 @@ class QuotesScreen extends StatelessWidget {
                         const SizedBox(height: TSizes.spaceBtwSections),
 
                         /// -- Featured Brands
-                        TSectionHeading(title: 'Your quotes', onPressed: () => Get.to(() => const AllBrandsScreen())),
+                        TSectionHeading(title: 'Your quotes', onPressed: () {}),
                         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
                         /// -- Brands
-                        Obx(
+                        /*Obx(
                           () {
                             // Check if categories are still loading
                             if (brandController.isLoading.value) return const TBrandsShimmer();
@@ -93,7 +87,73 @@ class QuotesScreen extends StatelessWidget {
                               );
                             }
                           },
+                        ),*/
+                        GestureDetector(
+                          onTap: () => Get.to(const QuoteDetailScreen()),
+                          child: Card(
+                            // Define the shape of the card
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(TSizes.cardRadiusXs),
+                            ),
+                            // Define how the card's content should be clipped
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            // Define the child widget of the card
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                // Add padding around the row widget
+                                Padding(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      // Add an image widget to display an image
+                                      Image.asset(
+                                        TImages.productImage72,
+                                        height: 100,
+                                        width: 100,
+                                        fit: BoxFit.cover,
+                                      ),
+                                      // Add some spacing between the image and the text
+                                      Container(width: 20),
+                                      // Add an expanded widget to take up the remaining horizontal space
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            // Add some spacing between the top of the card and the title
+                                            Container(height: 5),
+                                            // Add a title widget
+                                            Text(
+                                              "Quote 1",
+                                              style: Theme.of(context).textTheme.headlineMedium,
+                                            ),
+                                            // Add some spacing between the title and the subtitle
+                                            Container(height: 5),
+                                            // Add a subtitle widget
+                                            Text(
+                                              "Sub title example",
+                                              style: Theme.of(context).textTheme.bodyMedium,
+                                            ),
+                                            // Add some spacing between the subtitle and the text
+                                            Container(height: 10),
+                                            // Add a text widget to display some text
+                                            Text(
+                                              "Description text",
+                                              maxLines: 2,
+                                              style: Theme.of(context).textTheme.bodySmall,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
+
                         const SizedBox(height: TSizes.spaceBtwSections),
                       ],
                     ),
