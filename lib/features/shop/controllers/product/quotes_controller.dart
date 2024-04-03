@@ -49,7 +49,7 @@ class QuotesController extends GetxController {
         featuredServices.add(service);
       }
     } catch (e) {
-      print('Error fetching service details: $e');
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 }
