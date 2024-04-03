@@ -9,7 +9,6 @@ import '../../../../../utils/helpers/cloud_helper_functions.dart';
 import '../../../controllers/categories_controller.dart';
 import '../../../models/category_model.dart';
 import '../../all_products/all_products.dart';
-import 'category_brands.dart';
 
 class TCategoryTab extends StatelessWidget {
   const TCategoryTab({super.key, required this.category});
@@ -27,10 +26,6 @@ class TCategoryTab extends StatelessWidget {
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
-              /// -- Category Brands
-              CategoryBrands(category: category),
-              const SizedBox(height: TSizes.spaceBtwSections * 2),
-
               /// -- Category Products You May Like
               FutureBuilder(
                 future: controller.getCategoryProducts(categoryId: category.id),

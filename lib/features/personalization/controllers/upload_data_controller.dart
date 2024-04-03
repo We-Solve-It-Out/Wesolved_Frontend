@@ -9,7 +9,6 @@ import '../../../data/repositories/product/product_repository.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/popups/full_screen_loader.dart';
 import '../../../utils/popups/loaders.dart';
-import '../../shop/controllers/brand_controller.dart';
 import '../../shop/controllers/dummy_data.dart';
 import '../../shop/controllers/product/product_controller.dart';
 
@@ -57,57 +56,6 @@ class UploadDataController extends GetxController {
       await controller.uploadProductCategoryDummyData(TDummyData.productCategories);
 
       TLoaders.successSnackBar(title: 'Congratulations', message: 'All Categories Uploaded Successfully.');
-    } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
-    } finally {
-      // The next line disables the wakelock again.
-      WakelockPlus.disable();
-      TFullScreenLoader.stopLoading();
-    }
-  }
-
-  Future<void> uploadBrands() async {
-    try {
-      // The following line will enable the Android and iOS wakelock.
-      WakelockPlus.enable();
-
-      TFullScreenLoader.openLoadingDialog('Sit Tight! Your BRANDS are uploading...', TImages.cloudUploadingAnimation);
-
-      final controller = Get.put(BrandRepository());
-
-      // Upload All Categories and replace the Parent IDs in Firebase Console
-      await controller.uploadDummyData(TDummyData.brands);
-
-      // Re-fetch latest Brands
-      final brandController = Get.put(BrandController());
-      await brandController.getFeaturedBrands();
-
-      TLoaders.successSnackBar(title: 'Congratulations', message: 'All Brands Uploaded Successfully.');
-    } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
-    } finally {
-      // The next line disables the wakelock again.
-      WakelockPlus.disable();
-      TFullScreenLoader.stopLoading();
-    }
-  }
-
-  Future<void> uploadBrandCategory() async {
-    try {
-      // The following line will enable the Android and iOS wakelock.
-      WakelockPlus.enable();
-
-      TFullScreenLoader.openLoadingDialog(
-        'Sit Tight! Your BRANDS & CATEGORIES relationship is uploading...',
-        TImages.cloudUploadingAnimation,
-      );
-
-      final controller = Get.put(BrandRepository());
-
-      // Upload All Categories and replace the Parent IDs in Firebase Console
-      await controller.uploadBrandCategoryDummyData(TDummyData.brandCategory);
-
-      TLoaders.successSnackBar(title: 'Congratulations', message: 'All Brands Uploaded Successfully.');
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     } finally {
