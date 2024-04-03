@@ -10,14 +10,14 @@ import '../texts/t_brand_title_text.dart';
 class TVerticalImageAndText extends StatelessWidget {
   /// Constructor for [TVerticalImageAndText].
   const TVerticalImageAndText({
-    Key? key,
+    super.key,
     this.onTap,
     required this.image,
     required this.title,
     this.backgroundColor,
     this.isNetworkImage = true,
     this.textColor = TColors.white,
-  }) : super(key: key);
+  });
 
   /// The image asset path or URL.
   final String image;

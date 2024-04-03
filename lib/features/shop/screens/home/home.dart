@@ -12,7 +12,6 @@ import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/text_strings.dart';
 import '../../../../utils/device/device_utility.dart';
 import '../all_products/all_products.dart';
-import 'widgets/header_categories.dart';
 import 'widgets/header_search_container.dart';
 import 'widgets/home_appbar.dart';
 import 'widgets/promo_slider.dart';

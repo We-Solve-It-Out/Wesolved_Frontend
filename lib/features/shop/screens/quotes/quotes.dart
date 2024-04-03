@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wesolve/features/shop/controllers/categories_controller.dart';
 import 'package:wesolve/home_menu.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/appbar/tabbar.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
-import '../../../../common/widgets/products/cart/cart_menu_icon.dart';
 import '../../../../common/widgets/shimmers/brands_shimmer.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/colors.dart';
@@ -17,7 +15,6 @@ import '../../controllers/brand_controller.dart';
 import '../brand/all_brands.dart';
 import '../brand/brand.dart';
 import '../home/widgets/header_search_container.dart';
-import 'widgets/category_tab.dart';
 
 class QuotesScreen extends StatelessWidget {
   const QuotesScreen({super.key});

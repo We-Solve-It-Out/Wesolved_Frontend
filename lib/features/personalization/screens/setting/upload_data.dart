@@ -8,7 +8,7 @@ import '../../../../utils/constants/sizes.dart';
 import '../../controllers/upload_data_controller.dart';
 
 class UploadDataScreen extends StatelessWidget {
-  const UploadDataScreen({Key? key}) : super(key: key);
+  const UploadDataScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

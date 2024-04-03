@@ -15,7 +15,7 @@ import '../../models/product_model.dart';
 
 /// Represents a screen that displays a list of products with the option for custom sorting and filtering.
 class AllProducts extends StatelessWidget {
-  const AllProducts({Key? key, required this.title, this.query, this.futureMethod}) : super(key: key);
+  const AllProducts({super.key, required this.title, this.query, this.futureMethod});
 
   /// The title of the screen.
   final String title;
@@ -64,9 +64,9 @@ class AllProducts extends StatelessWidget {
 /// You can also perform sorting directly from the database using [ProductRepository.filterProducts].
 class TSortableProductList extends StatelessWidget {
   const TSortableProductList({
-    Key? key,
+    super.key,
     required this.products,
-  }) : super(key: key);
+  });
 
   /// The list of products to be displayed.
   final List<ProductModel> products;
