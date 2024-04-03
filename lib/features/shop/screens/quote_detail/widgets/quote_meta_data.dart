@@ -5,6 +5,7 @@ import 'package:wesolve/common/widgets/images/t_circular_image.dart';
 import 'package:wesolve/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
 import 'package:wesolve/common/widgets/texts/t_product_price_text.dart';
 import 'package:wesolve/common/widgets/texts/t_product_title_text.dart';
+import 'package:wesolve/features/shop/models/quote_model.dart';
 import 'package:wesolve/utils/constants/colors.dart';
 import 'package:wesolve/utils/constants/enums.dart';
 import 'package:wesolve/utils/constants/image_strings.dart';
@@ -12,17 +13,21 @@ import 'package:wesolve/utils/constants/sizes.dart';
 import 'package:wesolve/utils/helpers/helper_functions.dart';
 import '../../../controllers/product/product_controller.dart';
 import '../../../models/product_model.dart';
+import '../../../models/service_model.dart';
 
 class TQuoteMetaData extends StatelessWidget {
-  const TQuoteMetaData({super.key});
+  final QuoteModel quote;
+  final ServiceModel service;
+
+  const TQuoteMetaData({Key? key, required this.quote, required this.service}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final darkMode = THelperFunctions.isDarkMode(context);
 
     // Define constant prices (replace with actual values)
-    const double originalPrice = 100.00; // Replace with your actual price
-    const double salePrice = 80.00; // Replace with your actual sale price (optional)
+    final double originalPrice = service.precio; // Use service price as original price
+    final double salePrice = quote.precioContraoferta; // Use quote price as sale price
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,13 +74,15 @@ class TQuoteMetaData extends StatelessWidget {
               ),
 
             /// Sale Price
-            const TProductPriceText(
-                price: salePrice > 0.0 ? '$salePrice' : '$originalPrice',
-                isLarge: true),
+            Text(
+              salePrice > 0.0 ? '\$$salePrice' : '\$$originalPrice',
+              style: Theme.of(context).textTheme.titleLarge,
+            )
+
           ],
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
-        const TProductTitleText(title: 'Service Title'),
+        TProductTitleText(title: service.nombreServicio),
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
         Row(
           children: [
@@ -123,4 +130,3 @@ class TQuoteMetaData extends StatelessWidget {
   }
 
 }
-

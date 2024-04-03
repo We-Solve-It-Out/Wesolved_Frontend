@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class THttpHelper {
-  static const String _baseUrl = 'https://b416-181-237-127-53.ngrok-free.app';
+  static const String _baseUrl = 'https://eaf7-181-237-127-53.ngrok-free.app';
 
   // Helper method to make a GET request
   static Future<dynamic> get(String endpoint) async {
