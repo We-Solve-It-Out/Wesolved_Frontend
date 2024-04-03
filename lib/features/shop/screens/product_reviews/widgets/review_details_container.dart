@@ -9,7 +9,7 @@ import 'rating_star.dart';
 
 
 class UserReviewCard extends StatelessWidget {
-  const UserReviewCard({Key? key, required this.productReview}) : super(key: key);
+  const UserReviewCard({super.key, required this.productReview});
 
   final ProductReviewModel productReview;
 

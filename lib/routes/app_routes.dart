@@ -3,7 +3,7 @@ import 'package:wesolve/features/authentication/screens/login/login.dart';
 import 'package:wesolve/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:wesolve/features/shop/screens/chats/chats.dart';
 import 'package:wesolve/features/shop/screens/quotes/quotes.dart';
-import '../features/authentication/screens/onboarding/onboarding.dart';
+import '../features/authentication/screens/onBoarding/onboarding.dart';
 import '../features/authentication/screens/signup/signup.dart';
 import '../features/authentication/screens/signup/verify_email.dart';
 import '../features/personalization/screens/address/address.dart';

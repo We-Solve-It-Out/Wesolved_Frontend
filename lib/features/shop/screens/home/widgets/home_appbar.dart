@@ -7,7 +7,6 @@ import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../../../personalization/controllers/user_controller.dart';
-import '../../../../personalization/screens/profile/profile.dart';
 
 class THomeAppBar extends StatelessWidget {
   const THomeAppBar({

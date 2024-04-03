@@ -19,7 +19,7 @@ import '../../controllers/search_controller.dart';
 import '../../models/category_model.dart';
 
 class SearchScreen extends StatelessWidget {
-  SearchScreen({Key? key}) : super(key: key);
+  SearchScreen({super.key});
 
   final categoryController = CategoryController.instance;
   final searchController = Get.put(TSearchController());

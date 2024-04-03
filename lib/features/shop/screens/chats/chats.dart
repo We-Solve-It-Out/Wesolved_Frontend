@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wesolve/common/widgets/appbar/appbar.dart';
 import 'package:wesolve/common/widgets/appbar/tabbar.dart';
-import 'package:wesolve/common/widgets/shimmers/brands_shimmer.dart';
 import 'package:wesolve/common/widgets/texts/section_heading.dart';
 import 'package:wesolve/features/shop/screens/home/widgets/header_search_container.dart';
 import 'package:wesolve/home_menu.dart';

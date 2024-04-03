@@ -10,7 +10,6 @@ import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../home_menu.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
-import '../../../shop/screens/cart/cart.dart';
 import '../../../shop/screens/order/order.dart';
 import '../../controllers/user_controller.dart';
 import '../address/address.dart';
@@ -18,7 +17,7 @@ import '../profile/profile.dart';
 import 'upload_data.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

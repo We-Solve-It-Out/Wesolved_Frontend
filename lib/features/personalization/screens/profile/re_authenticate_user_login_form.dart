@@ -7,7 +7,7 @@ import '../../../../utils/validators/validation.dart';
 import '../../controllers/user_controller.dart';
 
 class ReAuthLoginForm extends StatelessWidget {
-  const ReAuthLoginForm({Key? key}) : super(key: key);
+  const ReAuthLoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {

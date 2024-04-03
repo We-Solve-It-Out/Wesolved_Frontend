@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../../../features/authentication/screens/login/login.dart';
-import '../../../features/authentication/screens/onboarding/onboarding.dart';
+import '../../../features/authentication/screens/onBoarding/onboarding.dart';
 import '../../../features/authentication/screens/signup/verify_email.dart';
 import '../../../home_menu.dart';
 import '../../../utils/exceptions/firebase_auth_exceptions.dart';
