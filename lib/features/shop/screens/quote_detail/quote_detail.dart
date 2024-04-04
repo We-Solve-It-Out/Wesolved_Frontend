@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import 'package:wesolve/common/widgets/texts/section_heading.dart';
+import 'package:wesolve/features/shop/controllers/product/accept_quote_controller.dart';
 import 'package:wesolve/features/shop/models/quote_model.dart';
 import 'package:wesolve/features/shop/models/service_model.dart';
 import 'package:wesolve/features/shop/screens/quote_detail/widgets/quote_meta_data.dart';
@@ -13,11 +14,12 @@ class QuoteDetailScreen extends StatelessWidget {
   final QuoteModel quote;
   final ServiceModel service;
 
-  const QuoteDetailScreen(
-      {super.key, required this.quote, required this.service});
+  const QuoteDetailScreen({Key? key, required this.quote, required this.service}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(AcceptQuoteController());
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quote Details'),
@@ -35,24 +37,25 @@ class QuoteDetailScreen extends StatelessWidget {
             /// 1 - Quote Image Slider or Placeholder Icon
             service.urlImagenServicio.isNotEmpty
                 ? Container(
-                    padding: const EdgeInsets.all(TSizes.defaultSpace),
-                    child: service.urlImagenServicio.isNotEmpty
-                        ? Image.network(
-                            service.urlImagenServicio,
-                            height: 200,
-                            width: 200,
-                            fit: BoxFit.cover,
-                          )
-                        : const Icon(Iconsax.image, size: 200),
-                  )
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: service.urlImagenServicio.isNotEmpty
+                  ? Image.network(
+                service.urlImagenServicio,
+                height: 200,
+                width: 200,
+                fit: BoxFit.cover,
+              )
+                  : const Icon(Iconsax.image, size: 200),
+            )
                 : const Icon(Iconsax.image, size: 200),
 
             /// 2 - Quote Details
             Container(
               padding: const EdgeInsets.only(
-                  right: TSizes.defaultSpace,
-                  left: TSizes.defaultSpace,
-                  bottom: TSizes.defaultSpace),
+                right: TSizes.defaultSpace,
+                left: TSizes.defaultSpace,
+                bottom: TSizes.defaultSpace,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -63,35 +66,56 @@ class QuoteDetailScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   /// -- Checkout Button
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          child: const Text('Accept'),
-                          onPressed: () {
-                            // Handle Accept action
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: TSizes.spaceBtwInputFields),
-                      Expanded(
-                        child: TextFormField(
-                          validator: (value) =>
-                              TValidator.validateEmptyText('New Offer', value),
-                          expands: false,
-                          decoration: const InputDecoration(
-                            labelText: 'New Offer',
-                            prefixIcon: Icon(Iconsax.money),
+                  GetBuilder<AcceptQuoteController>(
+                    builder: (controller) => Visibility(
+                      visible: quote.estado == 'por realizar',
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                              child: const Text('Accept'),
+                              onPressed: () async {
+                                await controller.acceptQuote(quote.cotizacionId);
+                                controller.update();
+                              },
+
+                            ),
                           ),
-                        ),
+                          const SizedBox(width: TSizes.spaceBtwInputFields),
+                          Expanded(
+                            child: TextFormField(
+                              validator: (value) =>
+                                  TValidator.validateEmptyText(
+                                      'New Offer', value),
+                              expands: false,
+                              decoration: const InputDecoration(
+                                labelText: 'New Offer',
+                                prefixIcon: Icon(Iconsax.money),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
+                  ),
+                  Visibility(
+                    visible: quote.estado != 'por realizar',
+                    child: const Text(
+                      'Quote Accepted',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
+                    ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   /// - Description
                   const TSectionHeading(
-                      title: 'Description', showActionButton: false),
+                    title: 'Description',
+                    showActionButton: false,
+                  ),
                   const SizedBox(height: TSizes.spaceBtwItems),
                   // Read more package
                   ReadMoreText(
@@ -102,9 +126,13 @@ class QuoteDetailScreen extends StatelessWidget {
                     trimCollapsedText: ' Show more',
                     trimExpandedText: ' Less',
                     moreStyle: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w800),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                    ),
                     lessStyle: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w800),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ],
               ),
